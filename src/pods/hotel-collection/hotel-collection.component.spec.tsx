@@ -3,7 +3,7 @@ import { render } from '@testing-library/react';
 import { HotelCollectionComponent } from './hotel-collection.component';
 
 describe('HotelCollectionComponent component specs', () => {
-  it('should render the hotel when given prop', () => {
+  it('should render the hotel with name when given prop hotel with name', () => {
     // Arrange
     const hotelCollection = [
       {
@@ -17,14 +17,14 @@ describe('HotelCollectionComponent component specs', () => {
     ];
 
     // Act
-    const {getByText, queryByText} = render(
+    const { getByText } = render(
       <HotelCollectionComponent hotelCollection={hotelCollection} />
     );
+    const element = getByText('nameTest');
 
     // Assert
-    //******************HOW TO GET ITS TEXT********************************** */
-    const element = queryByText('HotelCard');
-    //expect(element).not.toBeNull();
-    //expect(element.tagName).toEqual('div');
+    expect(element).not.toBeNull();
+    expect(element.tagName).toEqual('SPAN');
+    expect(element).toBeInTheDocument();
   });
 });

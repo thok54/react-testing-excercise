@@ -3,8 +3,9 @@ import { render, queryByText } from '@testing-library/react';
 import { TextField } from './text-field';
 
 describe('TextField component specs', () => {
-  it('should display a text field when given prop', () => {
+  it('should display a text field with name when given prop with name', () => {
     // Arrange
+     //******************HOW TO CREATE PROP********************************** */
     const props = {
       input: {
         name: 'John',
@@ -19,12 +20,13 @@ describe('TextField component specs', () => {
     // Act
     //******************HOW TO CALL IT********************************** */
     const { getByText, queryByText } = render(<TextField {...props} />);
-
+    
+    //******************HOW TO GET ITS TEXT********************************** */
+    const element = getByText('John');
 
     // Assert
-    //******************HOW TO GET ITS TEXT********************************** */
-    const element = queryByText('John');
-    //expect(element).not.toBeNull();
-    //expect(element.tagName).toEqual('TextFieldMui');
+    expect(element).not.toBeNull();
+    expect(element.tagName).toEqual('input');
+    expect(element).toBeInTheDocument();
   });
 });

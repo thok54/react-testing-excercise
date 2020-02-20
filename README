@@ -1,5 +1,5 @@
 Pending tests:
 
 -common/components/forms/text-field.tsx
--pods/hotel-collection/hotel-collection.component.tsx
+
 -pods/hotel-collection/hotel-collection.container.tsx
