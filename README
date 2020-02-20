@@ -11,3 +11,6 @@ Pending tests:
 
 -common/components/forms/text-field.tsx
 -pods/hotel-collection/hotel-collection.container.tsx
+
+Run test with following command:
+npm run test:watch
