@@ -1,5 +1,13 @@
+Did the following tests:
+
+-common/components/forms/text-field.spec.tsx
+-common/mappers/collection.mapper.spec.ts
+-pods/hotel-collection/hotel-collection.component.spec.tsx
+-pods/hotel-collection/hotel-collection.container.spec.tsx
+-pods/hotel-collection/hotel-collection.hook.spec.ts
+-pods/hotel-collection/hotel-collection.mapper.ts
+
 Pending tests:
 
 -common/components/forms/text-field.tsx
-
 -pods/hotel-collection/hotel-collection.container.tsx

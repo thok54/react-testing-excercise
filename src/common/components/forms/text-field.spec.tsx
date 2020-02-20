@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { render, queryByText } from '@testing-library/react';
+import { render } from '@testing-library/react';
 import { TextField } from './text-field';
 
 describe('TextField component specs', () => {
@@ -17,16 +17,13 @@ describe('TextField component specs', () => {
     };
 
     // Act
-    const { getByText, queryByText, getByAltText } = render(
-      <TextField {...props} />
-    );
+    const { getByText } = render(<TextField {...props} />);
 
-    //******************HOW TO GET ITS TEXT********************************** */
+    ///////////////////////HOW TO GET ITS TEXT///////////////////////////////////
     const element = getByText(props.input.name);
 
     // Assert
     expect(element).not.toBeNull();
     expect(element).toBeInTheDocument();
-    expect(true).toBeTruthy;
   });
 });

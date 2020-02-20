@@ -17,7 +17,7 @@ describe('HotelCollectionContainer ContainerHotelCollectionContainer specs', () 
       },
     ];
 
-    //********************* HOW TO MOCK RESULT ****************************** */
+    //////// HOW TO MOCK RESULT /////////////////////////////////////////////
     const getStub = jest
       .spyOn(hook, 'useHotelCollection')
       .mockResolvedValue(hotelCollection);
@@ -31,6 +31,5 @@ describe('HotelCollectionContainer ContainerHotelCollectionContainer specs', () 
     expect(getStub).toHaveBeenCalled();
     expect(element).not.toBeNull();
     expect(element).toBeInTheDocument();
-    expect(true).toBeTruthy;
   });
 });
