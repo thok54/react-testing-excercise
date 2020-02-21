@@ -27,9 +27,9 @@ Pending tests:
 
 
     For Future Cloning:
-    
+
     git init
-    git add README.md
+    git add .
     git commit -m "ready for Sabado"
     git remote add origin https://github.com/thok54/react-testing-excercise.git
     git push -u origin master
