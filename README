@@ -24,3 +24,12 @@ Pending tests:
 -pods/hotel-collection/hotel-collection.container.tsx
     Questions:
     -How to Mock the useHotelCollection (seems to need 2 parameters)
+
+
+    For Future Cloning:
+    
+    git init
+    git add README.md
+    git commit -m "ready for Sabado"
+    git remote add origin https://github.com/thok54/react-testing-excercise.git
+    git push -u origin master
