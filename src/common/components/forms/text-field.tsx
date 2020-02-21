@@ -18,7 +18,7 @@ export const TextField: React.FunctionComponent<Props> = props => {
   return (
     <TextFieldMui
       {...rest}
-      name={name}
+      data-testid="nameResult" name={name}
       error={showError}
       inputProps={restInput}
       onChange={onChange}

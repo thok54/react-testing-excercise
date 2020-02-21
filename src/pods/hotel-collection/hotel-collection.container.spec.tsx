@@ -2,6 +2,8 @@ import * as React from 'react';
 import { render, waitForElement } from '@testing-library/react';
 import { HotelCollectionContainer } from './hotel-collection.container';
 import * as hook from './hotel-collection.hook';
+import { renderHook } from '@testing-library/react-hooks';
+import { act } from 'react-dom/test-utils';
 
 describe('HotelCollectionContainer ContainerHotelCollectionContainer specs', () => {
   it('should render the hotel with name when given prop hotel with name', async () => {
@@ -20,7 +22,7 @@ describe('HotelCollectionContainer ContainerHotelCollectionContainer specs', () 
     //////// HOW TO MOCK RESULT /////////////////////////////////////////////
     const getStub = jest
       .spyOn(hook, 'useHotelCollection')
-      .mockResolvedValue(hotelCollection);
+      .mockReturnValue(hotelCollection );
 
     // Act
     const { getByText } = render(<HotelCollectionContainer />);
