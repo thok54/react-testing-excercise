@@ -1,59 +1,33 @@
-import * as React from 'react';
-import { render, fireEvent } from '@testing-library/react';
-import { TextField } from './text-field';
-import TextFieldMui from '@material-ui/core/TextField';
+import * as React from "react";
+import { render, fireEvent } from "@testing-library/react";
+import { TextField } from "./text-field";
+import TextFieldMui from "@material-ui/core/TextField";
 
-describe('TextField component specs', () => {
-  it('text field should be initially empty', () => {
+describe("TextField component specs", () => {
+  it("text field should be initially empty", () => {
     // Arrange
     const props = {
       input: {
-        name: 'John',
+        name: "John",
         onChange: jest.fn(),
-        value: 'hello',
+        value: "hello",
         onBlur: jest.fn(),
-        onFocus: jest.fn(),
+        onFocus: jest.fn()
       },
-      meta: 'active',
+      meta: "",
+      "data-testid": "test"
     };
 
     // Act
-    const { getByText, getByTestId } = render(<TextField {...props} />);
+    const { getByTestId } = render(<TextField {...props} />);
 
-    const element = getByTestId('nameResult');
-
-    // Assert
-    expect(element.textContent).not.toBeNull();
-    expect(element.tagName).toEqual('DIV');
-    expect(element).toBeInTheDocument();
-    expect(element.textContent).toEqual('');
-  });
-
-  it('should display a text field with name when given prop with name', () => {
-    // Arrange
-    const props = {
-      input: {
-        name: 'John',
-        onChange: jest.fn(),
-        value: 'hello',
-        onBlur: jest.fn(),
-        onFocus: jest.fn(),
-      },
-      meta: 'active',
-    };
-
-    // Act
-    const { getByText, getByTestId } = render(<TextField {...props} />);
-
-    ///////////////////////HOW TO USE getByTestId///////////////////////////////////
-    const element = getByTestId('nameResult');
-
-    fireEvent.change(element, { target: { name: 'John' } });
+    const element = getByTestId("test") as HTMLInputElement;
 
     // Assert
     expect(element.textContent).not.toBeNull();
-    expect(element.tagName).toEqual('DIV');
     expect(element).toBeInTheDocument();
-    expect(element.name).toEqual('John');
+    expect(element.textContent).toEqual("");
+    expect(element.hasAttribute(`name`)).toBeTruthy;
+    expect(element.name).toEqual("John");
   });
 });

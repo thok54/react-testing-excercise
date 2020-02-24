@@ -10,17 +10,3 @@ Did the following tests:
 
 Run test with following command:
 npm run test:watch
-
-
-
-
-Pending tests:
-
--common/components/forms/text-field.tsx
-    Questions:
-    -How to use getByTestId on the TextFieldMui
-
-
--pods/hotel-collection/hotel-collection.container.tsx
-    Questions:
-    -How to Mock the useHotelCollection (seems to need 2 parameters)
