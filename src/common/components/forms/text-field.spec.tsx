@@ -1,10 +1,9 @@
 import * as React from "react";
 import { render, fireEvent } from "@testing-library/react";
 import { TextField } from "./text-field";
-import TextFieldMui from "@material-ui/core/TextField";
 
 describe("TextField component specs", () => {
-  it("text field should be initially empty", () => {
+  it("text field should contain the given props", () => {
     // Arrange
     const props = {
       input: {

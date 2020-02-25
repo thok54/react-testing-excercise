@@ -1,28 +1,40 @@
-import { renderHook, act } from '@testing-library/react-hooks';
-import { getHotelCollection } from './hotel-collection.api';
-import { mapFromApiToVm } from './hotel-collection.mapper';
-import { mapToCollection } from 'common/mappers';
-import { HotelEntityVm } from './hotel-collection.vm';
-import { useHotelCollection } from './hotel-collection.hook';
+import { renderHook, act } from "@testing-library/react-hooks";
+import { HotelEntityVm } from "./hotel-collection.vm";
+import { useHotelCollection } from "./hotel-collection.hook";
 
-it('should use hotelCollection', () => {
-  // Arrange
-  const hotel: HotelEntityVm = {
-    id: 'idTest',
-    picture: 'pictureTest',
-    name: 'nameTest',
-    description: 'descriptionTest',
-    rating: 1,
-    address: 'adressTest',
-  };
-  // Act
-  const { result } = renderHook(() => useHotelCollection());
+describe("hook specs", () => {
+  it("should return empty collection and a function at first", () => {
+    // Arrange
 
-  act(() => {
-    result.current.loadHotelCollection();
+    // Act
+    const { result } = renderHook(() => useHotelCollection());
+
+    // Assert
+    expect(result.current.hotelCollection).toEqual([]);
+    expect(result.current.loadHotelCollection).toEqual(expect.any(Function));
   });
 
-  // Assert
-  expect(result.current.hotelCollection).toBeTruthy;
-  expect(result.current.loadHotelCollection).toEqual(expect.any(Function));
+  it("should be able to act on it", () => {
+    // Arrange
+    const hotels: HotelEntityVm[] = [
+      {
+        id: "idTest",
+        picture: "pictureTest",
+        name: "nameTest",
+        description: "descriptionTest",
+        rating: 1,
+        address: "adressTest"
+      }
+    ];
+    // Act
+    const { result } = renderHook(() => useHotelCollection());
+
+    act(() => {
+      result.current.loadHotelCollection();
+    });
+
+    // Assert
+    expect(result.current.hotelCollection).toEqual([]);
+    expect(result.current.loadHotelCollection).toEqual(expect.any(Function));
+  });
 });
