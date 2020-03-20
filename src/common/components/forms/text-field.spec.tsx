@@ -1,5 +1,5 @@
 import * as React from "react";
-import { render, fireEvent } from "@testing-library/react";
+import { render, fireEvent, getByText, queryByText } from "@testing-library/react";
 import { TextField } from "./text-field";
 
 describe("TextField component specs", () => {
@@ -13,7 +13,10 @@ describe("TextField component specs", () => {
         onBlur: jest.fn(),
         onFocus: jest.fn()
       },
-      meta: "",
+      meta: {
+        touched: true,
+        error: 'Test error',
+      },
       "data-testid": "test"
     };
 
@@ -21,8 +24,10 @@ describe("TextField component specs", () => {
     const { getByTestId } = render(<TextField {...props} />);
 
     const element = getByTestId("test") as HTMLInputElement;
+    const errorMessage = getByTestId(props.meta.error);
 
     // Assert
+    expect(errorMessage).toBeInTheDocument();
     expect(element.textContent).not.toBeNull();
     expect(element).toBeInTheDocument();
     expect(element.textContent).toEqual("");
